@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html class="antialiased">
-  <%= render "shared/head" %>
+  <head>
+    <title>Back My Idea</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <body class="font-sans font-normal leading-normal text-gray-800 bg-white">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body class="bg-blue-800 text-blue-100">
     <%= render "shared/flash_notice" %>
     <%= render "shared/header" %>
 
