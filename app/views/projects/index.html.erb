@@ -1,31 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<div class="max-w-lg bg-black border border-gray-300 rounded-lg px-8 pt-6 pb-8">
+  <h1 class="text-lg">Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Donation goal</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.donation_goal %></td>
-        <td><%= project.user_id %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
+    <thead>
+      <tr class="text-left border-b border-gray-300">
+        <th class="px-4 py-3">Title</th>
+        <th class="px-4 py-3">Goal</th>
+        <th class="px-4 py-3">User</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.donation_goal %></td>
+          <td><%= project.user_id %></td>
+          <td>
+            <div class="text-sm">
+              <%= link_to 'Show', project %>
+            </div>
+          </td>
+          <td>
+            <div class="text-sm">
+              <%= link_to 'Edit', edit_project_path(project) %></td>
+            </div>
+          <td>
+            <div class="text-sm">
+              <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>  
 
-<%= link_to 'New Project', new_project_path %>
+  <br>  
+
+  <div class="text-sm">
+    <%= link_to 'New Project', new_project_path %>
+  </div>
+</div>
