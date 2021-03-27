@@ -21,6 +21,11 @@
           <td><%= project.user_id %></td>
           <td>
             <div class="text-sm">
+              <%= truncate(strip_tags(project.description.to_s), length: 140) %>
+            </div>
+          </td>
+          <td>
+            <div class="text-sm">
               <%= link_to 'View Project', project %>
             </div>
           </td>
