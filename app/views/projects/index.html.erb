@@ -21,18 +21,21 @@
           <td><%= project.user_id %></td>
           <td>
             <div class="text-sm">
-              <%= link_to 'Show', project %>
+              <%= link_to 'View Project', project %>
             </div>
           </td>
-          <td>
-            <div class="text-sm">
-              <%= link_to 'Edit', edit_project_path(project) %></td>
-            </div>
-          <td>
-            <div class="text-sm">
-              <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-          </td>
+          <!-- only if user login in or admin -->
+          <% if author_of(project) %>
+            <td>
+              <div class="text-sm">
+                <%= link_to 'Edit', edit_project_path(project) %></td>
+              </div>
+            <td>
+              <div class="text-sm">
+                <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
