@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get 'comments/create'
   resources :projects
 
   # vist sidekiq if user is admin

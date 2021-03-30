@@ -3,7 +3,7 @@
 <div class="flex flex-wrap">
   <h1 class="text-lg">Projects</h1>
   <% @projects.each do |project| %>
-    <%= project.title %>
+    <h2><%= project.title %></h2>
     <%= project.donation_goal %>
     <%= project.user_id %>
     <%= truncate(strip_tags(project.description.to_s), length: 140) %>

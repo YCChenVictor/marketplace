@@ -13,11 +13,16 @@
 
   <p>
     <strong>User:</strong>
-    <%= @project.user_id %>
+    <%= @project.user.name ||= @project.user.username %>
   </p>  
 
   <div>
     <%= image_tag @project.thumbnail if @project.thumbnail.present? %>
+  </div>
+
+  <div class="">
+    <%= render "comments/comments", commentable: @project  %>
+    <%= render "comments/form", commentable: @project %>
   </div>
 
   <div class="">
