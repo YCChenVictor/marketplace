@@ -16,6 +16,10 @@
     <%= @project.user_id %>
   </p>  
 
+  <div>
+    <%= image_tag @project.thumbnail if @project.thumbnail.present? %>
+  </div>
+
   <div class="">
   	<%= link_to 'Edit', edit_project_path(@project) %>
   	<%= link_to 'Back', projects_path %>
