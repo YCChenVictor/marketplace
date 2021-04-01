@@ -4,6 +4,9 @@ class Project < ApplicationRecord
   has_one_attached :thumbnail # also can be has_many_attached
   has_many :comments, as: :commentable
 
+  scope :active, -> { where(status: "active") }
+  scope :inactive, -> { where(status: "inactive") }
+
   def active?
     status == "active"
   end

@@ -1,34 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<div class="max-w-lg m-auto bg-black border border-gray-300 rounded-lg px-8 pt-6 pb-8">
-  <p>
-    <strong>Title:</strong>
-    <%= @project.title %>
-  </p>  
-
-  <p>
-    <strong>Donation goal:</strong>
-    <%= @project.donation_goal %>
-  </p>  
-
-  <p>
-    <strong>User:</strong>
-    <%= @project.user.name ||= @project.user.username %>
-  </p>  
-
-  <div>
-    <%= image_tag @project.thumbnail if @project.thumbnail.present? %>
-  </div>
-
-  <div class="">
-    <%= render "comments/comments", commentable: @project  %>
-    <%= render "comments/form", commentable: @project %>
-  </div>
-
-  <div class="">
-    <% if admin? || author_of(@project) %>
-  	  <%= link_to 'Edit', edit_project_path(@project) %>
-    <% end %>
-  	<%= link_to 'Back', projects_path %>
-  </div>
-</div>
+<% if @project.active? %>
+  <%= render "active_project", project: @project %>
+<% else %>
+  <%= render "inactive_project", project: @project %>
+<% end %>
