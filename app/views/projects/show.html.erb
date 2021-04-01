@@ -26,7 +26,9 @@
   </div>
 
   <div class="">
-  	<%= link_to 'Edit', edit_project_path(@project) %>
+    <% if admin? || author_of(@project) %>
+  	  <%= link_to 'Edit', edit_project_path(@project) %>
+    <% end %>
   	<%= link_to 'Back', projects_path %>
   </div>
 </div>
