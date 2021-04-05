@@ -1,0 +1,5 @@
+<% if @product.active? %>
+  <%= render "active_product", product: @product %>
+<% else %>
+  <%= render "inactive_product", product: @product %>
+<% end %>

@@ -1,11 +1,13 @@
-# Preview all emails at http://localhost:3000/rails/mailers/user_mailer
 class UserMailer < ApplicationMailer
 
-  # Preview this email at http://localhost:3000/rails/mailers/user_mailer/project_expired_notice
-  def project_expired_notice
-    @project = params[:project]
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.user_mailer.product_expired_notice.subject
+  #
+  def product_expired_notice
+    @greeting = "Hi"
 
-    mail to: @project.user.email, subject: "Your project has expired"
+    mail to: "to@example.org"
   end
-
 end

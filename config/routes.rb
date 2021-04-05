@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
-  resources :projects do
-    resources :comments, module: :projects
+  resources :products do
+    resources :comments, module: :products
 
     member do
       post :checkout
@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root to: 'projects#index'
+  root to: 'products#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

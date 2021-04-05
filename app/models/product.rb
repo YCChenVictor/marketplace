@@ -1,4 +1,4 @@
-class Project < ApplicationRecord
+class Product < ApplicationRecord
   belongs_to :user
   has_rich_text :description
   has_one_attached :thumbnail # also can be has_many_attached

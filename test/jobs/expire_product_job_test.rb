@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ExpireProjectJobTest < ActiveJob::TestCase
+class ExpireProductJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end
