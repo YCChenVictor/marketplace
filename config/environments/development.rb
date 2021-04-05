@@ -75,3 +75,8 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+
+Braintree::Configuration.environment = :sandbox
+Braintree::Configuration.merchant_id = "4bfxk6qsmzdk44vw"
+Braintree::Configuration.public_key = "bj94qcjbxk85w4p5"
+Braintree::Configuration.private_key = "f91a1fea3aed7729062bfa4bc9e18f3b"

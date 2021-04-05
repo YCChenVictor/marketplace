@@ -48,6 +48,19 @@
     <%= render "comments/form", commentable: project %>
   </div>
 
+  <%= form_with(model: project, url: checkout_project_path(project), method: :post) do |f| %>
+    <div id="payment-form"></div>
+    <%= f.submit "pay", class:"btn btn-default btn-danger" %>
+  <% end %>
+
+  <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
+  <script>
+    var clientToken = "<%= @client_token %>";
+    braintree.setup(clientToken, "dropin", {
+      container: "payment-form"
+    });
+  </script>
+
  <% if admin? || author_of(project) %>
     <div class="absolute top-0 right-0 mt-4 mr-4">
       <%= link_to 'Edit', edit_project_path(project), class: "btn btn-sm btn-outlined btn-default" %>

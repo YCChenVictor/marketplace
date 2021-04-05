@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :comments, module: :projects
+
+    member do
+      post :checkout
+    end
   end
 
   devise_for :users

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update destroy checkout]
   before_action :authenticate_user!, except: [:index, :show]
 
 
@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @client_token = Braintree::ClientToken.generate
   end
 
   # GET /projects/new
@@ -57,6 +58,25 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def checkout
+    if @project
+      nonce = params[:payment_method_nonce]
+
+      result = Braintree::Transaction.sale(
+        amount: @project.donation_goal,
+        payment_method_nonce: nonce
+      )
+
+      if result
+        redirect_to project_path, notice: "Success!"
+      else
+        # 錯誤處理
+      end
+    else
+      # 錯誤處理
     end
   end
 
