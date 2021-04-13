@@ -17,13 +17,18 @@
   </div>
 
   <div class="mb-6 text-xl">
-    <%= form.label :thumbnail, "Product thumbnail", class: "label" %>
+    <%= form.label :thumbnail, "Product Thumbnail", class: "label" %>
     <%= form.file_field :thumbnail %>
   </div>
 
   <div class="mb-6 text-xl">
     <%= form.label :price, class: "label" %>
-    <%= form.text_field :donation_goal, class: "input" %>
+    <%= form.text_field :price, class: "input" %>
+  </div>
+
+  <div class="mb-6 text-xl">
+    <%= form.label :available_amount, "Available Amount", class: "label" %>
+    <%= form.text_field :current_available_amount, class: "input" %>
   </div>
 
   <div class="mb-6 text-xl">
