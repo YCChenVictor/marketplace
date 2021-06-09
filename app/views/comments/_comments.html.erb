@@ -1,4 +1,7 @@
 <p class="font-bold text-lg">Comments</p>
 <% commentable.comments.each do |comment| %>
-  <%= comment.body %>
+  <div>
+    <%= comment.body %>
+  <%#  <%= render "comments/reply_form", comment: @comment  %>
+  </div>
 <% end %>
