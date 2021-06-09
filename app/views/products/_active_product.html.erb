@@ -26,6 +26,9 @@
     <div class="w-full lg:w-3/5">
     <% if product.thumbnail.present? %>
       <%= image_tag product.thumbnail, class: "rounded" %>
+      <%= url_for(product.thumbnail) %>
+      <%= link_to product.thumbnail %>
+
     <% else %>
       <div class="flex items-center justify-center p-8 text-center bg-gray-100 rounded">
         <div class="">
