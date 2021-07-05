@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   end
 
   resources :products do
-    resources :comments, module: :products
+    resources :comments
 
     member do
       post :checkout
     end
+  end
+
+  resources :comments do
+    resources :comments # should use only to arrange the routes
   end
 
   devise_for :users

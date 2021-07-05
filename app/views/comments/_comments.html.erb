@@ -2,6 +2,10 @@
 <% commentable.comments.each do |comment| %>
   <div>
     <%= comment.body %>
-  <%#  <%= render "comments/reply_form", comment: @comment  %>
+    <% comment.comments.each do |comment| %>
+      <div>
+        <%= comment.body %>
+      </div>
+    <% end %>
   </div>
 <% end %>

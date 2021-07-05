@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_rich_text :description
   has_one_attached :thumbnail # also can be has_many_attached
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
 
   scope :active, -> { where(status: "active") }
   scope :inactive, -> { where(status: "inactive") }

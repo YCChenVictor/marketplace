@@ -45,7 +45,17 @@
   </div>
 
   <div class="w-full lg:w-3/5 pb-6">
-    <%= render "comments/comments", commentable: product  %>
+    <p class="font-bold text-lg">Comments</p>
+    <% product.comments.each do |comment| %>
+      <div class="font-bold">
+        <%= comment.body %>
+      </div>
+      <% comment.comments.each do |comment| %>
+        <div class="px-4">
+          <%= comment.body %>
+        </div>
+      <% end %>
+    <% end %>
     <%= render "comments/form", commentable: product %>
   </div>
   
