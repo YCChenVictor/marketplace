@@ -1,6 +1,6 @@
 <%= form_for [commentable, Comment.new], :remote => true do |f| %>
   <div class="">
-    <%= f.text_area :body, class: "input input-with-border", placeholder: "Add a comment", required: true %>
+    <%= f.text_area :body, class: "input input-with-border", placeholder: placeholder, required: true %>
   </div>
   <%= f.submit class: "btn btn-default" %>
 <% end %>

@@ -55,8 +55,12 @@
           <%= comment.body %>
         </div>
       <% end %>
+      <%= render "comments/form", commentable: comment, placeholder: "Add a reply" %>
     <% end %>
-    <%= render "comments/form", commentable: product %>
+    <br>
+    <br>
+    <br>
+    <%= render "comments/form", commentable: product, placeholder: "Add a comment" %>
   </div>
   
 
