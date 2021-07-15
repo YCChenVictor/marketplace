@@ -14,7 +14,8 @@
         Price: <%= product.price %>
       </p>
       <p class="text-sm opacity-75 text-black">
-        Created by: <%= product.user.name %>
+        Created by: <%= link_to product.user.name, user_path(product.user) %>
+        <% # link_to cashflow_to_newebpay_path %>
       </p>
       <%= link_to 'View product', product, class: "btn btn-default inline-block text-center my-2 bg-blue" %>
       <!-- only if user login in or admin -->
