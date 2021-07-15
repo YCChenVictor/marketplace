@@ -1,0 +1,12 @@
+<div>
+  <%= @user.name %>
+</div>
+<div>
+  <% if current_user == @user %>
+    <p>you cannot follow yourself</p>
+  <% elsif current_user.followees.include?(@user) %>
+    <%= button_to "unfollow", unfollow_user_path(@user), method: :post, class: "btn btn-default mb-2 lg:mr-2 lg:mb-0 block bg-black" %>
+  <% else %>
+    <%= button_to "follow", follow_user_path(@user), method: :post, class: "btn btn-default mb-2 lg:mr-2 lg:mb-0 block bg-black" %>
+  <% end %>
+</div>
